@@ -6,11 +6,15 @@ This tutorial focuses on how to prevent this optimization from occuring for both
 
 # Inline functions
 
-  > __attribute__((always_inline)):  Compiler directive to inline function
-  > unit-at-a-time: Consider information from later function calls to reduce
+  * __attribute__((always_inline)):  Compiler directive to inline function
+  * unit-at-a-time: Consider information from later function calls to reduce
                     current ones during compile time
      * Enabled automatically at optimization levels >= 2
      * Can combine parts of functions that are redundant
-  > inline-limt: The max size of a function, in terms of instruction number, that can be inlined
-  > keep-inline-functions: Force static functions that are declared inline to get compiled to obj files
-  
+  * inline-limt: The max size of a function, in terms of instruction number, that can be inlined
+  * keep-inline-functions: Force static functions that are declared inline to get compiled to obj files
+  * -finline-limit=5000
+
+# Padding
+
+Note that padding occurs in final executables, so you may not see a jump in resulting file size for extra calls to inline functions or macro expansions.  
