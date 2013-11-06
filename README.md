@@ -21,7 +21,7 @@ For example:
    
 Even though cleverTest() is referenced multiple times, a determined attacker only has to find where in memory "cleverTest" is called and null it out, or set a constant return value.    
 
-This tutorial walks through the important compiler flags and directives, as well as providing a sample xcode project that enforces code redundancy.
+This tutorial walks through the compiler flags and directives involved, as well as providing a sample xcode project that enforces code redundancy.
 
 # Inline functions
 
