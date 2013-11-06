@@ -45,7 +45,7 @@ foo.c
 
 # Macros
 
-Macros have much less restrictions than inline functions.  Keeping the optimization level low (Anything below **-O3**) has seemed to prevent any optimizations that result in merged macro code. If you have only macros you want made redundant, but no C functions that you are inlining then **-O0** is the safest option, since it prevents any optimization from occuring.  In general though **-O1** should be fine, and allows you to force functions to be inline.
+Macros have much less restrictions than inline functions.  Keeping the optimization level low (Anything below **-O3**) has seemed to prevent any optimizations that result in merged macro code. If you have only macros you want made redundant then **-O0** is the safest option, since it prevents any optimization from occuring.  In general though **-O1** should be fine, and allows you to force functions to be inline.
 
 # Padding
 
