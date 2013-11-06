@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3E453E6817D66A9C0095B60F"
-               BuildableName = "forced-redundancy.app"
+               BuildableName = "compiler-redundancy.app"
                BlueprintName = "compiler-redundancy"
                ReferencedContainer = "container:compiler-redundancy.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3E453E9117D66A9C0095B60F"
-               BuildableName = "forced-redundancyTests.octest"
+               BuildableName = "compiler-redundancyTests.octest"
                BlueprintName = "compiler-redundancyTests"
                ReferencedContainer = "container:compiler-redundancy.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E453E6817D66A9C0095B60F"
-            BuildableName = "forced-redundancy.app"
+            BuildableName = "compiler-redundancy.app"
             BlueprintName = "compiler-redundancy"
             ReferencedContainer = "container:compiler-redundancy.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E453E6817D66A9C0095B60F"
-            BuildableName = "forced-redundancy.app"
+            BuildableName = "compiler-redundancy.app"
             BlueprintName = "compiler-redundancy"
             ReferencedContainer = "container:compiler-redundancy.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E453E6817D66A9C0095B60F"
-            BuildableName = "forced-redundancy.app"
+            BuildableName = "compiler-redundancy.app"
             BlueprintName = "compiler-redundancy"
             ReferencedContainer = "container:compiler-redundancy.xcodeproj">
          </BuildableReference>

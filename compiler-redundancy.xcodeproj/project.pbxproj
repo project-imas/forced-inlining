@@ -370,6 +370,7 @@
 				GCC_PREFIX_HEADER = "inlineTest/compiler-redundancy-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "inlineTest/compiler-redundancy-Info.plist";
+				OTHER_CFLAGS = "-finline-limit=5000";
 				PRODUCT_NAME = "compiler-redundancy";
 				WRAPPER_EXTENSION = app;
 			};
