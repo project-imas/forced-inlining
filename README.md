@@ -2,7 +2,9 @@
 
 Modern compilers do several levels of optimization, and much of it is opaque to the end developer.  Some optimizations combine redundant code into a single set of instructions, and move the pointer on the execution stack to that block as needed.  This is normally a good thing that leads to smaller executables, faster programs, etc.  But there from a security perspective an attacker now only has to find where that set of code returns and overwrite it.
 
-For example:
+![One return point](images/issue.png)
+
+Code example:
 
     int cleverTest() {
        // Code that tests if something bad has happened
@@ -19,9 +21,12 @@ For example:
        // Do sensitive things again
     }
    
-Even though cleverTest() is referenced multiple times, a determined attacker only has to find where in memory "cleverTest" is called and null it out, or set a constant return value.    
+Even though cleverTest() is referenced multiple times, a determined attacker only has to find where in memory "cleverTest" is called and null it out, or set a constant return value.   
 
-This tutorial walks through the compiler flags and directives involved, as well as providing a sample xcode project that enforces code redundancy.
+This tutorial walks through the compiler flags and directives involved, as well as providing a sample xcode project that enforces code redundancy.  So the compiler will put in the same code at multiple points.
+
+![Multiple patches needed](images/forced.png)
+
 
 # Inline functions
 
@@ -63,6 +68,11 @@ The following settings have had good success in Xcode for enforcing redundant co
 # Note on the LLVM Compiler
 
 The GCC LLVM was tested more than the default Apple LLVM.  The Apple LLVM should behave the same, and the documentation shows that it supports the same compiler flags.  Less information about its internals though is available, so I'm hesitant to say that it is forcing code redundancy.
+
+Below is a side-by-side comparison of the gcc assembly instructions generated, showing where an attacker must patch or null out in memory to avoid detection.
+
+![Assembly Comparison](images/assemblyCompare.png)
+
 
 # Compiler-redundancy Project
 
