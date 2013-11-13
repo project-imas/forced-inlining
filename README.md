@@ -60,6 +60,9 @@ The following settings have had good success in Xcode for enforcing redundant co
   * Compiler for C/C++: LLVM GCC 
   * Optimization Level: Fast [-O, O1]
 
+# Note on the LLVM Compiler
+
+The GCC LLVM was tested more than the default Apple LLVM.  The Apple LLVM should behave the same, and the documentation shows that it supports the same compiler flags.  Less information about its internals though is available, so I'm hesitant to say that it is forcing code redundancy.
 
 # Compiler-redundancy Project
 
