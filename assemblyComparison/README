@@ -1,0 +1,5 @@
+compile.sh # Compiles normally with no arguments
+compile.sh ALWAYS # Compiles with always_inline directive
+
+The only changes introduced by compile.sh flags is using always_inline 
+and the appropriate compiler flag for inline limits
