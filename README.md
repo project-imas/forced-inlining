@@ -99,3 +99,6 @@ The included project gives an example of an Xcode project with the appropriate b
 Uncommenting either or both of these will cause the resulting file size to grow (Actual sizes dependant on the target).  For example, when MANY_INLINES is defined, instead of 2 instances of *unoptimizable* being called, 7 are.  The function *unoptimizable* is crafted to avoid basic compiler optimizations, and have a large instruction footprint.  As a result the executable will jump by roughly 4kb from just the five new calls.
 
 These results can also be verified on the command line by outputting assembly instead of executable files.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/3ff4433047e1614a06d5b1afb101ddd3 "githalytics.com")](http://githalytics.com/project-imas/forced-inlining)
+
