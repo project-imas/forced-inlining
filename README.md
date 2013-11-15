@@ -1,6 +1,16 @@
 # Overview
 
-Modern compilers do several levels of optimization, and much of it is opaque to the end developer.  Some optimizations combine redundant code into a single set of instructions, and move the pointer on the execution stack to that block as needed.  This is normally a good thing that leads to smaller executables, faster programs, etc.  But there from a security perspective an attacker now only has to find where that set of code returns and overwrite it.
+Inlining functions can be a very effective method of duplicating sensitive code such that would be attackers
+are forced to work harder and spend more time finding and altering this code.  For example, placing jailbreak detection code
+in multiple places throughout an app make it much more difficult for an attacker to simply find the one "exit"
+call and "nop-it" out.  For iMAS we consider this to be a very important security technique.
+
+
+Modern compilers do several levels of optimization, and much of it is opaque to the end developer.  
+Some optimizations combine redundant code into a single set of instructions, and move the pointer on 
+the execution stack to that block as needed.  This is normally a good thing that leads to smaller 
+executables, faster programs, etc.  But there from a security perspective an attacker now only has 
+to find where that set of code returns and overwrite it.
 
 ![One return point](images/issue.png)
 
@@ -50,11 +60,17 @@ foo.c
 
 # Macros
 
-Macros have much less restrictions than inline functions.  Keeping the optimization level low (Anything below **-O3**) has seemed to prevent any optimizations that result in merged macro code. If you have only macros you want made redundant then **-O0** is the safest option, since it prevents any optimization from occuring.  In general though **-O1** should be fine, and allows you to force functions to be inline.
+Macros have much less restrictions than inline functions.  Keeping the optimization level low (Anything 
+below **-O3**) has seemed to prevent any optimizations that result in merged macro code. If you have only 
+macros you want made redundant then **-O0** is the safest option, since it prevents any optimization from 
+occuring.  In general though **-O1** should be fine, and allows you to force macros to be inline.
 
 # Padding
 
-Note that padding occurs in final executables, so you may not see a jump in resulting file size for extra calls to inline functions or macro expansions.  The file size increase should be porportional though to the amount of additions.  i.e. if it only jumps by 4 bytes for a large inline function something is wrong.  This is covered more in the sample project files and sections of this readme.
+Note that padding occurs in final executables, so you may not see a jump in resulting file size 
+for extra calls to inline functions or macro expansions.  The file size increase should be porportional 
+though to the amount of additions.  i.e. if it only jumps by 4 bytes for a large inline function something 
+is wrong.  This is covered more in the sample project files and sections of this readme.
 
 # Summary of Xcode settings
 
