@@ -1,10 +1,14 @@
-# Overview
+# Background
 
-Inlining functions can be a very effective method of duplicating sensitive code such that would be attackers
-are forced to work harder and spend more time finding and altering this code.  For example, placing jailbreak detection code
+The "iMAS forced-inlining" tutorial provides guidance on defending applications from memory editing and program patching attacks. These attacks can be used to get around sensitive code areas such as authentication checks, jailbreak detection, etc.  In the nominal case an attacker must only find the one place a security check happens and modify if it is actually called, or what it returns. But by using the proper compiler directives and build settings we can force these checks to appear multiple places in the resulting instruction set. Now an attacker must actively find and patch every place a check occurs to bypass a given security mechanism.
+
+This has been coupled with other iMAS controls, such as [security-check](https://github.com/project-imas/security-check), to help bolster a given application's overall resilience.  The [Remail-iPhone](https://github.com/project-imas/Remail-iPhone) application also has these techniques integrated into a real application, to demonstrate practical usage.
+ 
+# Technical Overview
+
+Inlining functions can be a very effective method of duplicating sensitive code. Duplicating code means that attackers are forced to work harder and spend more time finding and altering this code, and have a higher chance of accidently altering critical sections.  For example, placing jailbreak detection code
 in multiple places throughout an app make it much more difficult for an attacker to simply find the one "exit"
-call and "nop-it" out.  For iMAS we consider this to be a very important security technique.
-
+call and overwrite it with a "NOOP".  
 
 Modern compilers do several levels of optimization, and much of it is opaque to the end developer.  
 Some optimizations combine redundant code into a single set of instructions, and move the pointer on 
