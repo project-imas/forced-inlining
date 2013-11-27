@@ -83,7 +83,9 @@ The following settings have had good success in Xcode for enforcing redundant co
 
 # Note on the LLVM Compiler
 
-The GCC LLVM was tested more than the default Apple LLVM.  The Apple LLVM should behave the same, and the documentation shows that it supports the same compiler flags.  Less information about its internals though is available, so I'm hesitant to say that it is forcing code redundancy.
+Clang's (Apple's default LLVM compiler) does not support inline related flags (Such as finline-limit).  It can still be used to force redundany, but additional testing should be done to make sure always_inline is being honored.  One way to do this is to move relevant sections of code to their own standalone .c and .h files and compile with the assembly flag (-S) on.  
+
+An example program is provided in the **assemblyComparison** directory. The **compile.sh** script contains all the relevant compile options for both clang and gcc. 
 
 Below is a side-by-side comparison of the gcc assembly instructions generated, showing where an attacker must patch or null out in memory to avoid detection.
 
