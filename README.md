@@ -1,4 +1,4 @@
-# Background
+# Background[![analytics](http://www.google-analytics.com/collect?v=1&t=pageview&_s=1&dl=https%3A%2F%2Fgithub.com%2Fproject-imas%2Fforced-inlining&_u=MAC~&cid=1757014354.1393964045&tid=UA-38868530-1)]()
 
 The "iMAS forced-inlining" tutorial provides guidance on defending applications from memory editing and program patching attacks. These attacks can be used to get around sensitive code areas such as authentication checks, jailbreak detection, etc.  In the nominal case an attacker must only find the one place a security check happens and modify if it is actually called, or what it returns. But by using the proper compiler directives and build settings we can force these checks to appear multiple places in the resulting instruction set. Now an attacker must actively find and patch every place a check occurs to bypass a given security mechanism.
 
@@ -105,6 +105,4 @@ The included project gives an example of an Xcode project with the appropriate b
 Uncommenting either or both of these will cause the resulting file size to grow (Actual sizes dependant on the target).  For example, when MANY_INLINES is defined, instead of 2 instances of *unoptimizable* being called, 7 are.  The function *unoptimizable* is crafted to avoid basic compiler optimizations, and have a large instruction footprint.  As a result the executable will jump by roughly 4kb from just the five new calls.
 
 These results can also be verified on the command line by outputting assembly instead of executable files.
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/3ff4433047e1614a06d5b1afb101ddd3 "githalytics.com")](http://githalytics.com/project-imas/forced-inlining)
 
